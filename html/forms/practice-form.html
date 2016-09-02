@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To Do</title>
+</head>
+<body>
+  <form name="to_do" action="success.html" method="post">
+  <h1>To Do List</h1>
+  <fieldset>
+    <div>
+      <label>Item 1:</label>
+      <input type="text" name="item1">
+    </div>
+
+    <div>
+      <label>Item 2:</label>
+      <input type="text" name="item2">
+    </div>
+
+    <div>
+      <label>Item 3:</label>
+      <input type="text" name="item3">
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div>
+      <label>When would you like to be sent this To Do list?</label>
+      <input type="date" name="date_to_send">
+    </div>
+
+    <div>
+      <label>How would you like us to send this To Do list?</label>
+      <select name="method_of_sending">
+        <option value="email_user">Email me</option>
+        <option value="text_user">Text me</option>
+        <option value="call_user">Call me</option>
+      </select>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div>User comments:</div>
+    <textarea name="user_comments">
+    </textarea>
+  </fieldset>
+
+  <fieldset>
+    <div>
+      <input type="checkbox" name="mailing_list" value="agree">
+      I want to be added to your mailing list.
+    </div>
+  </fieldset>
+
+  <button type="submit">Send</button>
+</form>
+
+</body>
+</html>
