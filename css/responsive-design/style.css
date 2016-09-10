@@ -1,3 +1,4 @@
+/* Default Styles */
 blockquote {
   border-left: 5px solid blue;
   padding: 15px;
@@ -15,7 +16,7 @@ cite {
 }
 
 /* you're welcome to edit the
-image, figure, and figcaption CSS if you'd like, 
+image, figure, and figcaption CSS if you'd like,
 but it's optional! */
 img {
   width: 100%;
@@ -30,3 +31,26 @@ figcaption {
   font-style: italic;
   text-align: right;
 }
+
+/*-------------------*/
+/* CUSTOM STYLES */
+/*-------------------*/
+
+body {
+  width: 960px;
+}
+
+/* Make External Links a Sidebar */
+main {
+  width: 756px;
+  display: inline-block;
+}
+
+section#external-links {
+  width: 200px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+
+
