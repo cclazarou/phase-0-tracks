@@ -13,10 +13,6 @@ cite {
   margin-top: 10px;
 }
 
-section#external-links {
-  width: 200px;
-}
-
 #external-links ul {
   list-style-type: none;
   padding-left: 0px;
@@ -37,4 +33,12 @@ figure {
 figcaption {
   font-style: italic;
   text-align: right;
+}
+
+main {
+  width: 756px;
+}
+
+section#external-links {
+  width: 200px;
 }
