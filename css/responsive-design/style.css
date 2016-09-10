@@ -68,4 +68,20 @@ body {
   min-width: 508px;
 }
 
+/* Media Queries */
 
+/* make headers smaller at narrow widths */
+
+@media screen and (max-width: 508px) {
+  h1{
+    font-size: 1.5em;
+  }
+}
+
+/* make main text bigger at narrow widths */
+
+@media screen and (max-width: 508px){
+  body p {
+    font-size: 1.5em;
+  }
+}
