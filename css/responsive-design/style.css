@@ -37,20 +37,35 @@ figcaption {
 /*-------------------*/
 
 body {
-  width: 960px;
+  max-width: 960px;
 }
 
 /* Make External Links a Sidebar */
+
 main {
-  width: 756px;
+  width: 70%;
+  /* must leave "space" between percentages (at 80% of body, main section is pushed to next line) */
   display: inline-block;
 }
 
 section#external-links {
-  width: 200px;
+  width: 20%;
   display: inline-block;
   vertical-align: top;
 }
 
+/* Make Text More Readable */
+
+section#external-links {
+  margin-right: 15px;
+}
+
+section#external-links ul > li {
+  margin: 15px 0 15px 0;
+}
+
+body {
+  min-width: 508px;
+}
 
 
