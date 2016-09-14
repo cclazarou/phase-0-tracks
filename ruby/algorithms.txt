@@ -1,0 +1,39 @@
+- Wait for instructions on what floor to take the elevator to, unless a more urgent direction that conflicts with this direction must take precedence.
+  - If a more urgent is given to you, address that direction first, then continue to wait for elevator instructions.
+    - If the more urgent direction requires or is made more efficient by using the elevator, follow the directions below to use the elevator.
+
+- Remember what floor you are instructed to go to.
+
+- Step into the elevator.  Make sure to:
+  - Keep all body parts completely inside the elevator during this program
+  - Consider all instructions EXCEPT the last instruction as referring to actions on objects inside the elevator.
+
+- Find the button panel.  Define the button panel as an arrangement of 1 or more depressable buttons.
+  - Check for the button panel in these places:
+    - If the elevator door DOES NOT span the complete width of one of the elevator's sides
+      - Then check for the button panel within 3 feet of the right-most perimeter of the elevator door, widthwise, on the same elevator wall where the door is.  Check the area within 3-5 feet in height in this region first, then check all other areas in this region.
+      - If the button panel is not there
+        - Then check for the button panel within 3 feet of the left-most perimeter of the elevator door, widthwise, on the same elevator wall where the door is. Check the area within 3-5 feet in height in this region first, then check all other areas in this region.
+    - If the elevator DOES span the complete width of one of the elevator's sides
+      - Then check for the button panel on the elevator wall adjacent to the right side of the elevator door, within 3 feet, widthwise, of the elevator door's right perimeter. Check the area within 3-5 feet in height in this region first, then check all other areas in this region.
+      - If the button panel is not there
+        - Then check for the button panel on the elevator wall adjacent to the left side of the elevator door, within 3 feet, widthwise, of the elevator door's left perimeter. Check the area within 3-5 feet in height in this region first, then check all other areas in this region.
+      - If the button panel is not in any of these regions, check the rest of the elevator's sides, ommitting the floor and ceiling of the elevator.
+
+- Once you've located the button panel, read any numbers or letters you see on the buttons.  Locate the floor number/s or letter/s that matches the floor you were directed to go to.
+  - If the floor you were directed to go to has a name instead of a number
+    - Then check for the common elevator-specific abbreviations for that name [associate (case-insensitive): "L" with "Lobby", "B" with "Basement", "G" with "Garage", "LG" with "Lower Ground", "P" with "Parking".
+  - If you were directed to go to a floor that is below ground level, and you were not given a number, and you don't see the common elevator-specific abbreviation of the floor name on the button panel, interpret "-1" as name of the floor you were directed to go to.
+
+- If you do not see a button with the floor letter/s or number/s of the floor you were directed to go to written on it
+  - Then look for the button with "open" or "< >" on it.  Press that button, exit the elevator, and contact me to receive further instructions (do not continue with these instructions)
+
+- Press the button you have selected.
+
+- Wait inside the elevator as it moves to another floor.
+
+- Continue to wait inside the elevator until it reaches the floor you were directed to go to (do not leave elevator on any stops that may occur on the way to the desired floor).
+
+- When the elevator reaches the floor you were directed to go to, exit the elevator.
+
+
