@@ -18,7 +18,7 @@ if adoption=="y"
 elsif adoption=="n"
   adoption = false
 else
-  adoption = "invalid input"
+  adoption = "undetermined"
 end
 
 # Ask age (int)
@@ -35,8 +35,9 @@ else
   age = age.to_i
 end
 
-# puts "name #{name.class}"
-# puts "volume #{volume.class}"
-# puts "fur_color #{fur_color.class}"
-# puts "adoption #{adoption.class}"
-# puts "age #{age.class}"
+puts "Hamster Info"
+puts "Name: #{name}"
+puts "Volume level: #{volume}"
+puts "Fur color: #{fur_color}"
+puts "Suitable for adoption: #{adoption}"
+puts "Estimated age: #{age}"
