@@ -1,0 +1,15 @@
+section {
+  display: inline-block;
+  width: 49%;
+  vertical-align: top;
+}
+
+header {
+  background-color: gray;
+  border-radius: 25%;
+}
+
+footer {
+  filter: grayscale(0.5) blur(10px);
+}
+
