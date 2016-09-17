@@ -1,3 +1,5 @@
+# copied from 4.2 pair program partner's repo https://github.com/chelseylin/phase-0-tracks/blob/master/ruby/secret_agents.rb
+
 #encrypt method
 
 def encrypt(str)
