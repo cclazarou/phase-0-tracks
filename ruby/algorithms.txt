@@ -1,3 +1,5 @@
+ALGORITHM FOR ELEVATOR ROBOT
+
 - Wait for instructions on what floor to take the elevator to, unless a more urgent direction that conflicts with this direction must take precedence.
   - If a more urgent is given to you, address that direction first, then continue to wait for elevator instructions.
     - If the more urgent direction requires or is made more efficient by using the elevator, follow the directions below to use the elevator.
@@ -36,4 +38,19 @@
 
 - When the elevator reaches the floor you were directed to go to, exit the elevator.
 
+COMMON TASK ALGORITHM: FEED THE CAT
 
+Feed the cat =
+  Pick up the cat food container from under the desk
+  Open the cat food container
+  Using the plastic scoop from the cat food container, put two scoops worth of cat food into the cat food bowl beside the place you found the container
+  Put the plastic scoop back into the cat food container
+  Close the cat food container
+
+If it is 9am or 6pm
+  Feed the cat
+If the cat is staring at you and meowing more than once every minute
+    If you haven't fed the cat within 3 hours
+    Then feed the cat
+    Else wait until 3 hours has passed since the last time you fed the cat
+      Then feed the cat
