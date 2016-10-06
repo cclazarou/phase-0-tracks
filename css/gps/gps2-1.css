@@ -1,15 +1,33 @@
-section {
+body {
+  background-color: pink;
+}
+
+h1, h2 {
+  font-family: "Lobster", cursive;
+}
+
+a:hover {
+  color: orange;
+}
+
+section.column-1 h2 {
+  color: yellow;
+}
+
+section.column-1 {
   display: inline-block;
   width: 49%;
+ /* background-color: red; */
   vertical-align: top;
 }
 
-header {
-  background-color: gray;
-  border-radius: 25%;
+section.column-2 {
+  display: inline-block;
+  width: 49%;
+ /*  background-color: blue; */
+  vertical-align: top;
 }
 
 footer {
-  filter: grayscale(0.5) blur(10px);
+  padding-top: 15px;
 }
-
