@@ -1,43 +1,44 @@
-# Ask for name
-puts "What is the hamster's name?"
-name = gets.chomp
-
-# Ask for volume level (1-10)
-puts "What is this hamster's volume level (1-10)?"
-volume = gets.chomp.to_i
-
-# Ask for fur color
-puts "What is the fur color?"
-fur_color = gets.chomp
-
-# Ask adoption (t/f)
-puts "Is this hamster a good candidate for adoption (y/n)?"
-adoption = gets.chomp
-if adoption=="y"
-  adoption = true
-elsif adoption=="n"
-  adoption = false
+# Get user input for the next 8 lines
+puts "Please type the hamster's name and press return when done"
+h_name = gets.chomp
+puts "How loud is the hamster normally? Please use between 1-10"
+h_volume = gets.chomp.to_i
+puts "What color is the hamster?"
+h_color = gets.chomp
+puts "Is the hamster a good candidate for adoption? Please use yes or no"
+h_adoption = gets.chomp
+# Until the user enters value data, loop thru the user input
+until h_adoption == true || h_adoption == false
+  if h_adoption.downcase == "yes"
+    h_adoption = true
+  elsif h_adoption.downcase == "no"
+    h_adoption = false
+   else
+    puts "Please use \"yes or \"no"
+    h_adoption = gets.chomp
+  end
+end
+# Get last line of user input
+puts "How old is the hamster? Estimates are acceptable"
+# Convert age to integer and check for blank strings
+h_age = gets.chomp
+# Until a valid integer or empty string is input, ask for valid input
+until h_age.to_i.is_a?(Integer) || h_age == ""
+  puts "Please input a valid integer for age, or leave blank"
+  h_age = gets.chomp
+end
+#If age is blank, assign it to nil
+if (h_age == "")
+  h_age = nil
+#Otherwise, the input isn't blank, save the integer value
 else
-  adoption = "undetermined"
+  h_age = h_age.to_i
 end
 
-# Ask age (int)
-puts "What is this hamster's age?"
-age = gets.chomp
-
-# if age.empty
-#   If age is blank, set to nil
-# Put age in variable
-
-if age.empty?
-  age = nil
-else
-  age = age.to_i
-end
-
-puts "Hamster Info"
-puts "Name: #{name}"
-puts "Volume level: #{volume}"
-puts "Fur color: #{fur_color}"
-puts "Suitable for adoption: #{adoption}"
-puts "Estimated age: #{age}"
+#Output results of the user input
+puts "Added Hamster:"
+puts "name: #{h_name}"
+puts "volume: #{h_volume}"
+puts "fur: #{h_color}"
+puts "adoptable?: #{h_adoption}"
+puts "estimated age: #{h_age}"
