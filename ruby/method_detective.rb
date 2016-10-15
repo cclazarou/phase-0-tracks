@@ -7,11 +7,23 @@
 #method inverts case
 varA = "iNvEsTiGaTiOn"
 culpritA1 = varA.swapcase
-puts "#{culpritA1}"
+puts "output: #{culpritA1}"
+puts "original after method is called: #{varA}"
+#swapcase! changes the receiver to match the method's return
 culpritA2 = varA.swapcase!
-puts "#{culpritA2}"
+puts "output: #{culpritA2}"
+puts "original after method is called: #{varA}"
 # => “InVeStIgAtIoN”
 
+#method finds the second character in the string, then repeats the second character
+#or method finds second character then substitutes with two of second character
+varB = "zom"
+culpritB1 = varB.sub("o","oo")
+puts "output: #{culpritB1}"
+puts "original after output: #{varB}"
+culpritB2 = varB.sub!("o","oo")
+puts "output: #{culpritB2}"
+puts "original after output: #{varB}"
 # "zom".<???>
 # => “zoom”
 
