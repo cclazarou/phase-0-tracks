@@ -43,7 +43,14 @@ puts "original after output: #{varD}"
 # "Stop! You’re under arrest!".<???>
 # => "STOP! YOU’RE UNDER ARREST!"
 
-# "the usual".<???>
+# method that adds a string to the end of a string
+varE = "the usual"
+culpritE1 = varE + " suspects"
+puts "output: #{culpritE1}"
+puts "original after output: #{varE}"
+culpritE2 = varE << " suspects"
+puts "output: #{culpritE2}"
+puts "original after output: #{varE}"
 #=> "the usual suspects"
 
 # " suspects".<???>
