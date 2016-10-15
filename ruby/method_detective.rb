@@ -142,23 +142,23 @@ puts "output: #{culpritI2}"
 puts "original after ouput: #{varI_copy}"
 # # => "Elementary, my dear Watson!"
 
-# puts "CULPRIT J"
-# varJ = "The mystery of the missing first letter"
-# varJ_copy = varJ
+puts "CULPRIT J"
+varJ = "z"
+varJ_copy = varJ
 
-# culpritJ1 = varJ_copy.
-# puts "output: #{culpritJ1}"
-# puts "original after ouput: #{varJ_copy}"
-# # "z".<???>
-# # => 122
-# # (What is the significance of the number 122 in relation to the character z?)
+#turns character in string into its ASCII number analog"
+culpritJ1 = varJ.codepoints
+puts "output: #{culpritJ1}"
+puts "original after ouput: #{varJ_copy}"
+# => 122
+# Q: (What is the significance of the number 122 in relation to the character z?)
+# A: 122 is z's "codepoint", meaning its numeric representation
 
-# puts "CULPRIT K"
-# varK = "The mystery of the missing first letter"
-# varK_copy = varK
+puts "CULPRIT K"
+varK = "How many times does the letter 'a' appear in this string?"
+varK_copy = varK
 
-# culpritK1 = varK_copy.
-# puts "output: #{culpritK1}"
-# puts "original after ouput: #{varK_copy}"
-# # "How many times does the letter 'a' appear in this string?".<???>
+culpritK1 = varK_copy.count("a")
+puts "output: #{culpritK1}"
+puts "original after ouput: #{varK_copy}"
 # # => 4
