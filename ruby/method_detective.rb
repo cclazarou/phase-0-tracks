@@ -127,13 +127,19 @@ puts "original after ouput: #{varH_copy} - in this case, the input string become
 # => "he mystery of the missing first letter"
 
 puts "CULPRIT I"
-varI = "The mystery of the missing first letter"
+varI = "Elementary,    my   dear        Watson!"
 varI_copy = varI
 
-# culpritI1 = varI_copy.
-# puts "output: #{culpritI1}"
-# puts "original after ouput: #{varI_copy}"
-# # "Elementary,    my   dear        Watson!".<???>
+#removes extra whitespace
+culpritI1 = varI_copy.squeeze(" ")
+puts "output: #{culpritI1}"
+puts "original after ouput: #{varI_copy}"
+
+#same as .squeeze but changes input to match return, and returns nil if no changes were made
+varI_copy = varI
+culpritI2 = varI_copy.squeeze!(" ")
+puts "output: #{culpritI2}"
+puts "original after ouput: #{varI_copy}"
 # # => "Elementary, my dear Watson!"
 
 # puts "CULPRIT J"
