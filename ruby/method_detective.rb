@@ -43,7 +43,7 @@ puts "original after output: #{varD}"
 # "Stop! You’re under arrest!".<???>
 # => "STOP! YOU’RE UNDER ARREST!"
 
-# method that adds a string to the end of a string
+# method that appends new string to old string
 varE = "the usual"
 culpritE1 = varE + " suspects"
 puts "output: #{culpritE1}"
@@ -53,7 +53,11 @@ puts "output: #{culpritE2}"
 puts "original after output: #{varE}"
 #=> "the usual suspects"
 
-# " suspects".<???>
+#method that prepends new string to old string
+varF = " suspects"
+culpritF1 = varF.prepend("the usual")
+puts "output: #{culpritF1}"
+puts "original after output: #{varF}"
 # => "the usual suspects"
 
 # "The case of the disappearing last letter".<???>
