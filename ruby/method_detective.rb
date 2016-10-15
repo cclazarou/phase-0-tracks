@@ -8,15 +8,14 @@
 varA = "iNvEsTiGaTiOn"
 culpritA1 = varA.swapcase
 puts "output: #{culpritA1}"
-puts "original after method is called: #{varA}"
+puts "original after output: #{varA}"
 #swapcase! changes the receiver to match the method's return
 culpritA2 = varA.swapcase!
 puts "output: #{culpritA2}"
-puts "original after method is called: #{varA}"
+puts "original after output: #{varA}"
 # => “InVeStIgAtIoN”
 
-#method finds the second character in the string, then repeats the second character
-#or method finds second character then substitutes with two of second character
+#or method finds character in string and substitutes with other character/s
 varB = "zom"
 culpritB1 = varB.sub("o","oo")
 puts "output: #{culpritB1}"
@@ -24,8 +23,13 @@ puts "original after output: #{varB}"
 culpritB2 = varB.sub!("o","oo")
 puts "output: #{culpritB2}"
 puts "original after output: #{varB}"
-# "zom".<???>
 # => “zoom”
+
+# method centers string and pads left and right if width given is larger than input string
+varC = "enhance"
+culpritC1 = varC.center(15)
+puts "output: #{culpritC1}"
+puts "original after output: #{varC}"
 
 # "enhance".<???>
 # => "    enhance    "
