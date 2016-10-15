@@ -30,10 +30,16 @@ varC = "enhance"
 culpritC1 = varC.center(15)
 puts "output: #{culpritC1}"
 puts "original after output: #{varC}"
-
-# "enhance".<???>
 # => "    enhance    "
 
+# method changes lower to upper case in string
+varD = "Stop! You're under arrest!"
+culpritD1 = varD.upcase
+puts "output: #{culpritD1}"
+puts "original after output: #{varD}"
+culpritD2 = varD.upcase!
+puts "output: #{culpritD2}"
+puts "original after output: #{varD}"
 # "Stop! You’re under arrest!".<???>
 # => "STOP! YOU’RE UNDER ARREST!"
 
