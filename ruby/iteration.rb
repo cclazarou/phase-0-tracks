@@ -16,6 +16,12 @@ candy_eaters = {
   mary: "hot cheetos mac n' cheese"
 }
 
+candy_types.each do |type|
+  puts "I love #{type}!"
+end
 
+candy_eaters.each do |person,food|
+  puts "#{person} loves #{food}!"
+end
 
 
