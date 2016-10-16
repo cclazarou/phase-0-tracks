@@ -1,4 +1,4 @@
-#method takes block and prints status before and after running block (block prints several of its parameters)
+#R0 Method that takes block, and a block that prints its parameters
 
 def status
   puts "this is a before status"
@@ -8,6 +8,8 @@ end
 
 status{|candy1,candy2| puts "candy1: #{candy1}, candy2: #{candy2}"}
 
+#R1 Q1 declare an array and a hash
+
 candy_types = ["chocolate","candy cane","gummy bear"]
 
 candy_eaters = {
@@ -16,6 +18,8 @@ candy_eaters = {
   mary: "hot cheetos mac n' cheese"
 }
 
+#R1 Q2 Iterating with .each and .map! on array and hash
+
 candy_types.each do |type|
   puts "I love #{type}!"
 end
@@ -23,5 +27,13 @@ end
 candy_eaters.each do |person,food|
   puts "#{person} loves #{food}!"
 end
+
+puts "candy_types array before we call .map!: #{candy_types}"
+
+candy_types.map! do |type|
+  type + "!"
+end
+
+puts "candy_types array after we call .map!: #{candy_types}"
 
 
