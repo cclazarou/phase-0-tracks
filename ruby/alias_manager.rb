@@ -26,6 +26,11 @@ def letter_incrementer(array)
 
 end
 
+def name_joiner(arr)
+  arr[0] << " "
+  arr.join
+end
+
 # name_arrayer("Candace Lazarou")
 
 puts letter_incrementer(["Candace","Lazarou"])
