@@ -6,34 +6,34 @@
 #3. increment each consonant in array to next consonant in alphabet (does not require creation of alphabet array)
 # .succ (see above)
 
-def name_arrayer(real_name)
-  fake_name = real_name.split(' ')
-  return fake_name
-end
+# def name_arrayer(real_name)
+#   fake_name = real_name.split(' ')
+#   return fake_name
+# end
 
-def letter_incrementer(array)
-  array.each do |word|
+def alias_maker(real_name)
+  real_name = real_name.split(' ')
+  new_name = Array.new
+  single_word_changed = "test"
 
-    letters = word.split('')
-    letters.each do |letter|
-      letter.succ!
+  real_name.each do |single_word|
+    letters = single_word.split('')
+    letters.each do |single_letter|
+      single_letter.succ!
     end
-
-    joined_letters = letters.join
-    puts joined_letters
-
+    single_word_changed = letters.join
+    single_word_changed << " "
+    new_name << single_word_changed
   end
 
+  new_name = new_name.join
+  new_name = new_name.chop
+
+  puts new_name
+
 end
 
-def name_joiner(arr)
-  arr[0] << " "
-  arr.join
-end
-
-# name_arrayer("Candace Lazarou")
-
-puts letter_incrementer(["Candace","Lazarou"])
+puts alias_maker("Candace Lazarou")
 
 
 
