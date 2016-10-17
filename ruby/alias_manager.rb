@@ -12,21 +12,30 @@
 # end
 
 def alias_maker(real_name)
+#split name into array
   real_name = real_name.split(' ')
+#create variables for use later
   new_name = Array.new
   single_word_changed = "test"
 
+#split each word in name into separate arrays of letters
   real_name.each do |single_word|
     letters = single_word.split('')
+#increment each letter forward in word, repeat for each word
     letters.each do |single_letter|
       single_letter.succ!
     end
+#join letters in each word
     single_word_changed = letters.join
+#add whitespace at end of each new word
     single_word_changed << " "
+#add each word to new array
     new_name << single_word_changed
   end
 
+#join words in new array to form alias
   new_name = new_name.join
+#get rid of extra white space at end of alias
   new_name = new_name.chop
 
   puts new_name
