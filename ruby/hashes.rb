@@ -17,22 +17,28 @@ end
 #prompt user for client info
 puts "Please enter client information"
 puts "name:"
-name = gets.chomp
+name_input = gets.chomp
 
 puts "age:"
-age = gets.chomp
+age_input = gets.chomp
 
 puts "decor theme:"
-theme = gets.chomp
+theme_input = gets.chomp
 
 puts "are they a jerk? please type y or n"
-jerk = gets.chomp
+jerk_input = gets.chomp
 
 #type conversion
 age = age.to_i
-jerk = to_b(jerk)
+jerk_input = to_b(jerk_input)
 
 #create hash
 
-puts
+client = {
+  name: name_input,
+  age: age_input,
+  theme: theme_input,
+  jerk: jerk_input
+}
+
 
