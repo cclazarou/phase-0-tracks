@@ -36,4 +36,77 @@ end
 
 puts "candy_types array after we call .map!: #{candy_types}"
 
+#5.3r2 Finding methods in documentation
+#Make sure to comment out other examples while testing each method, or the destructive methods may affect outcome
 
+cables = ["USB", "instrument", "HDMI", "Thunderbolt"]
+
+instrument_players = {
+  tom: "guitar",
+  jerry: "drums",
+  mary: "sitar"
+}
+
+#.delete_if
+
+#...on an array
+puts "cables array before .delete_if: #{cables}"
+cables.delete_if do |cable_type|
+  cable_type == "instrument"
+end
+puts "cables array after .delete_if: #{cables}"
+
+#...on a hash
+puts "instrument_players array before .delete_if: #{instrument_players}"
+instrument_players.delete_if do |musician,instrument|
+  instrument == "guitar"
+end
+puts "instrument_players array after .delete_if: #{instrument_players}"
+
+#.select
+
+#...on an array
+cable_selection = cables.select do |cable_type|
+  cable_type == "HDMI"
+end
+
+puts cable_selection
+
+#...on a hash
+musician_and_instrument = instrument_players.select do |musician,instrument|
+  instrument == "guitar"
+end
+
+puts musician_and_instrument
+
+#.keep_if
+
+#...on an array
+cable_selection = cables.keep_if do |cable_type|
+  cable_type == "HDMI"
+end
+
+puts cable_selection
+
+#...on a hash
+musician_and_instrument = instrument_players.keep_if do |musician,instrument|
+  instrument == "guitar"
+end
+
+puts musician_and_instrument
+
+#.reject!
+
+#...on an array
+puts "cables array before .reject!: #{cables}"
+cables.reject! do |cable_type|
+  cable_type.upcase.include? "S"
+end
+puts "cables array after .reject!: #{cables}"
+
+#...on a hash
+puts "instrument_players hash before .reject!: #{instrument_players}"
+instrument_players.reject! do |musician,instrument|
+  instrument == "guitar"
+end
+puts "instrument_players hash after .reject!: #{instrument_players}"
