@@ -44,10 +44,8 @@ end
 
 def remove_item(glist,item)
   glist.delete(item)
+  p glist
 end
-
-list = create_list("apples oranges bananas")
-add_to_list(list,"plums",8)
 
 # Method to update the quantity of an item
 # input: name of item, new quantity
@@ -55,6 +53,16 @@ add_to_list(list,"plums",8)
   #find item name in keys
   #assign new quantity as value
 # output: updated list
+
+def new_quantity(glist,item,new_qty)
+  glist[item] = new_qty
+  p glist
+end
+
+list = create_list("apples oranges bananas")
+add_to_list(list,"plums",8)
+remove_item(list,"oranges")
+new_quantity(list, "apples", 100)
 
 # Method to print a list and make it look pretty
 # input: list (hash)
