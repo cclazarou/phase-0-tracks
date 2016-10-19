@@ -7,12 +7,33 @@
   # print the list to the console [can you use one of your other methods here?] - puts will print nicely
   # create hash that will accept items in array as keys and all values will be the default value
 # output: hash
+def create_list(str)
+  quantity = 1
+
+  glist_array = str.split(" ")
+
+  puts glist_array
+
+  glist_hash = {}
+
+  glist_array.each do |item|
+    glist_hash[item] = quantity
+  end
+
+  p glist_hash
+
+end
 
 # Method to add an item to a list
 # input: item name (key value) and optional quantity (optional argument)
 # steps:
-  #find item name/create key in hash and assign quantity (if provided) as value
+  #find create key in hash and assign quantity (if provided) as value
 # output: key value pair confirmation
+
+def add_to_list(glist,item,quantity=1)
+  glist[item] = quantity
+  p glist
+end
 
 # Method to remove an item from the list
 # input: item name
@@ -20,6 +41,13 @@
   #find item name amongst keys in hash
   #delete that key value pair
 # output: updated list
+
+def remove_item(glist,item)
+  glist.delete(item)
+end
+
+list = create_list("apples oranges bananas")
+add_to_list(list,"plums",8)
 
 # Method to update the quantity of an item
 # input: name of item, new quantity
