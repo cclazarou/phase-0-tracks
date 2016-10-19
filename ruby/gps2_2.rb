@@ -59,13 +59,20 @@ def new_quantity(glist,item,new_qty)
   p glist
 end
 
-list = create_list("apples oranges bananas")
-add_to_list(list,"plums",8)
-remove_item(list,"oranges")
-new_quantity(list, "apples", 100)
-
 # Method to print a list and make it look pretty
 # input: list (hash)
 # steps:
   #iterate through hash and print each kb pair on new line
 # output: pretty list
+
+def pretty_princess(glist)
+  glist.each do |k,v|
+    puts "#{k}: #{v}"
+  end
+end
+
+list = create_list("apples oranges bananas")
+add_to_list(list,"plums",8)
+remove_item(list,"oranges")
+new_quantity(list, "apples", 100)
+pretty_princess(list)
