@@ -5,5 +5,11 @@ class Puppy
     toy
   end
 
+
+
 end
+
+ralph = Puppy.new
+
+ralph.fetch("frisbee")
 
