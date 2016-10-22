@@ -1,4 +1,7 @@
 class Santa
+  attr_reader :age, :ethnicity
+  attr_accessor :gender, :reindeer_ranking
+
   def initialize(gender,ethnicity)
     "Initializing Santa instance"
     @gender = gender
@@ -24,13 +27,13 @@ class Santa
 
 #GETTER METHODS
 
-def age
-  @age
-end
+# def age
+#   @age
+# end
 
-def ethnicity
-  @ethnicity
-end
+# def ethnicity
+#   @ethnicity
+# end
 
 #SETTER METHODS
 
@@ -59,16 +62,16 @@ end
     # puts @reindeer_ranking
   end
 
-#reassign gender from outside class def
-  def reassign_gender(real_gender)
-    puts "before assignment:"
-    puts @gender
+# #reassign gender from outside class def
+#   def reassign_gender(real_gender)
+#     puts "before assignment:"
+#     puts @gender
 
-    @gender = real_gender
+#     @gender = real_gender
 
-    puts "after assignment:"
-    puts @gender
-  end
+#     puts "after assignment:"
+#     puts @gender
+#   end
 
 end
 
@@ -81,42 +84,51 @@ example_genders.length.times do |i|
   santas << Santa.new(example_genders[i], example_ethnicities[i])
 end
 
-#1. create a new instance of the Santa class called candace
-#2. print its instance variables
-candace = Santa.new("cisgender","filipino")
-candace.about_instance
+# #1. create a new instance of the Santa class called candace
+# #2. print its instance variables
+# candace = Santa.new("cisgender","filipino")
+# candace.about_instance
 
-#print all members of santas array along with instance variables
-puts "#{santas}"
+# #print all members of santas array along with instance variables
+# puts "#{santas}"
 
-#print Class and address of member of santa array at 0 index
-puts "#{santas[0]}"
+# #print Class and address of member of santa array at 0 index
+# puts "#{santas[0]}"
 
-#1. get Santa instance at index 0 in santas array
-#2. make instance celebrate a birthday
-santas[0].celebrate_birthday
+# #1. get Santa instance at index 0 in santas array
+# #2. make instance celebrate a birthday
+# santas[0].celebrate_birthday
 
-#1. get Santa instance at index 2
-#2. print santas array
-#3. make instance get mad at Vixen
-#4. print santas
-puts santas
-santas[2].get_mad_at("Vixen")
-puts santas
+# #1. get Santa instance at index 2
+# #2. print santas array
+# #3. make instance get mad at Vixen
+# #4. print santas
+# puts "#{santas}"
+# santas[2].get_mad_at("Vixen")
+# puts "#{santas}"
 
-#1. print santas array
-#2. reassign gender instance variable of instance at index 1
-#3. print santas array
-puts santas
-santas[1].reassign_gender("none of your business")
-puts santas
+# # 1. print gender instance at index 1
+# # 2. reassign gender instance variable of instance at index 1
+# # 3. print gender instance at index 1
+# puts santas[1].gender
+# santas[1].gender = "none of your business"
+# puts santas[1].gender
 
-#1. get age of instance at index 4
-#2. get ethnicity of instance at index 4
-puts santas[4].age
-puts santas[4].ethnicity
+# 1. print reindeer_ranking of instance at index 1
+# 2. change value of reindeer_ranking of instance at index 1 with get_mad_at method
+# 3. print reindeer_ranking of instance at index 1
+puts "reindeer_ranking before get_mad_at is called:"
+puts santas[1].reindeer_ranking
+santas[1].get_mad_at("Dasher")
+puts "reindeer_ranking after get_mad_at is called"
+puts santas[1].reindeer_ranking
 
-#1. get age of instance at index 0
-#2. get ethnicity of instance at index 0
-puts santas[0].age
-puts santas[0].ethnicity
+# #1. get age of instance at index 4
+# #2. get ethnicity of instance at index 4
+# puts santas[4].age
+# puts santas[4].ethnicity
+
+# #1. get age of instance at index 0
+# #2. get ethnicity of instance at index 0
+# puts santas[0].age
+# puts santas[0].ethnicity
