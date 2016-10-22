@@ -1,0 +1,13 @@
+class Santa
+  def initialize
+    "Initializing Santa instance"
+  end
+
+  def speak
+    puts "Ho, ho, ho! Haaaaaaappy holidays"
+  end
+
+  def eat_milk_and_cookies(cookie_type)
+    puts "That was a good #{cookie_type}"
+  end
+end
