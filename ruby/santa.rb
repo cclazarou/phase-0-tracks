@@ -1,9 +1,9 @@
 class Santa
-  attr_reader :age, :ethnicity
-  attr_accessor :gender, :reindeer_ranking
+  attr_reader :ethnicity
+  attr_accessor :gender, :reindeer_ranking, :age
 
   def initialize(gender,ethnicity)
-    "Initializing Santa instance"
+    puts "Initializing Santa instance"
     @gender = gender
     @ethnicity = ethnicity
     @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
@@ -73,6 +73,7 @@ class Santa
 #     puts @gender
 #   end
 
+#--class end--
 end
 
 #create a few instances of the Santa class, and put it into a new array called santas
@@ -84,35 +85,35 @@ example_genders.length.times do |i|
   santas << Santa.new(example_genders[i], example_ethnicities[i])
 end
 
-# #1. create a new instance of the Santa class called candace
-# #2. print its instance variables
-# candace = Santa.new("cisgender","filipino")
-# candace.about_instance
+#1. create a new instance of the Santa class called candace
+#2. print its instance variables
+candace = Santa.new("cisgender","filipino")
+candace.about_instance
 
-# #print all members of santas array along with instance variables
-# puts "#{santas}"
+#print all members of santas array along with instance variables
+puts "#{santas}"
 
-# #print Class and address of member of santa array at 0 index
-# puts "#{santas[0]}"
+#print Class and address of member of santa array at 0 index
+puts "#{santas[0]}"
 
-# #1. get Santa instance at index 0 in santas array
-# #2. make instance celebrate a birthday
-# santas[0].celebrate_birthday
+#1. get Santa instance at index 0 in santas array
+#2. make instance celebrate a birthday
+santas[0].celebrate_birthday
 
-# #1. get Santa instance at index 2
-# #2. print santas array
-# #3. make instance get mad at Vixen
-# #4. print santas
-# puts "#{santas}"
-# santas[2].get_mad_at("Vixen")
-# puts "#{santas}"
+#1. get Santa instance at index 2
+#2. print santas array
+#3. make instance get mad at Vixen
+#4. print santas
+puts "#{santas}"
+santas[2].get_mad_at("Vixen")
+puts "#{santas}"
 
-# # 1. print gender instance at index 1
-# # 2. reassign gender instance variable of instance at index 1
-# # 3. print gender instance at index 1
-# puts santas[1].gender
-# santas[1].gender = "none of your business"
-# puts santas[1].gender
+# 1. print gender instance at index 1
+# 2. reassign gender instance variable of instance at index 1
+# 3. print gender instance at index 1
+puts santas[1].gender
+santas[1].gender = "none of your business"
+puts santas[1].gender
 
 # 1. print reindeer_ranking of instance at index 1
 # 2. change value of reindeer_ranking of instance at index 1 with get_mad_at method
@@ -123,12 +124,36 @@ santas[1].get_mad_at("Dasher")
 puts "reindeer_ranking after get_mad_at is called"
 puts santas[1].reindeer_ranking
 
-# #1. get age of instance at index 4
-# #2. get ethnicity of instance at index 4
-# puts santas[4].age
-# puts santas[4].ethnicity
+#1. get age of instance at index 4
+#2. get ethnicity of instance at index 4
+puts santas[4].age
+puts santas[4].ethnicity
 
-# #1. get age of instance at index 0
-# #2. get ethnicity of instance at index 0
-# puts santas[0].age
-# puts santas[0].ethnicity
+#1. get age of instance at index 0
+#2. get ethnicity of instance at index 0
+puts santas[0].age
+puts santas[0].ethnicity
+
+#0. create 100 Santas, each created with the following steps:
+#1. select random gender and random ethnicity (.sample)
+#2. create new instance from Santa class using these arguments
+#3. select random number between 0 and 140 (prng = Random.new, use rand(max))
+#4. assign new santa's age to this number
+#5. print attributes of new santa using attr_reader methods
+
+100.times do
+  prng = Random.new
+
+  random_gender = example_genders.sample
+  random_ethnicity = example_ethnicities.sample
+
+  new_santa = Santa.new(random_gender,random_ethnicity)
+
+  new_santa.age = rand(140)
+
+  puts "#{new_santa.gender}"
+  puts "#{new_santa.ethnicity}"
+  puts "#{new_santa.reindeer_ranking}"
+  puts "#{new_santa.age}"
+
+end
