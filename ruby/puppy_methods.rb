@@ -32,11 +32,35 @@ class Puppy
 
 end
 
-ralph = Puppy.new
+class Cat
 
-ralph.fetch("frisbee")
-ralph.speak(3)
-ralph.roll_over
-ralph.dog_years(2)
-ralph.play_dead
+#initialize method
+def initialize
+  puts "I'm a cat and I exist"
+end
+
+#method1
+def scratch
+  puts "*scratches you*"
+end
+
+#method2
+def eat(food)
+  puts "I just ate a #{food}"
+end
+
+end
+
+# ralph = Puppy.new
+
+# ralph.fetch("frisbee")
+# ralph.speak(3)
+# ralph.roll_over
+# ralph.dog_years(2)
+# ralph.play_dead
+
+sam = Cat.new
+
+sam.scratch
+sam.eat("mouse")
 
