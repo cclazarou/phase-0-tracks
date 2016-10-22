@@ -24,10 +24,10 @@ attr_accessor :tasklist
 
 end
 
-new_todolist = TodoList.new(["do the dishes", "mow the lawn"])
+# new_todolist = TodoList.new(["do the dishes", "mow the lawn"])
 
-#For reviewer:
-#We were able to get add_item to return what we expected (an array with the item added) here in the driver code, but were not able to figure out why the equivalent test in our spec did not pass.
+# #For reviewer:
+# #We were able to get add_item to return what we expected (an array with the item added) here in the driver code, but were not able to figure out why the equivalent test in our spec did not pass.
 
 # puts "before add_item is called:"
 # p new_todolist.tasklist
