@@ -1,3 +1,5 @@
+require_relative 'todo_list'
+
 describe TodoList do
   let(:list) { TodoList.new(["do the dishes", "mow the lawn"]) }
 
@@ -7,7 +9,7 @@ describe TodoList do
 
   it "adds an item to the list" do
     list.add_item("mop")
-    expect(list.get_items).to eq ["do the dishes", "mow the lawn", "mop"]
+    expect(list.add_item).to eq ["do the dishes", "mow the lawn", "mop"]
   end
 
   it "deletes an item" do
@@ -16,6 +18,6 @@ describe TodoList do
   end
 
   it "retrieves an item by index" do
-    expect(list.get_item(0)).to eq "do the dishes"
+    expect(list.retrieve_item(0)).to eq "do the dishes"
   end
 end
