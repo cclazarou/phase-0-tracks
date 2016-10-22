@@ -59,8 +59,17 @@ end
 # ralph.dog_years(2)
 # ralph.play_dead
 
-sam = Cat.new
+# sam = Cat.new
 
-sam.scratch
-sam.eat("mouse")
+# sam.scratch
+# sam.eat("mouse")
+cat_house = []
 
+50.times do
+  cat_house << Cat.new
+end
+
+cat_house.each do |certain_cat|
+  certain_cat.scratch
+  certain_cat.eat("alligator")
+end
