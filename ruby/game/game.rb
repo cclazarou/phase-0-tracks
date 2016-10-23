@@ -1,6 +1,6 @@
 class GuessWhat
 #attr methods
-attr_accessor :max_guesses
+attr_accessor :secret_word, :max_guesses, :guess_count, :game_is_over
 
 #initialize method (instance variables)
 #set maximum number of guesses to the number of characters in the secret word given by user 1
