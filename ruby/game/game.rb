@@ -6,24 +6,56 @@ attr_accessor :secret_word, :max_guesses, :guess_count, :game_is_over
 #set maximum number of guesses to the number of characters in the secret word given by user 1
   def initialize(user1_input):
     @secret_word = user1_input
-    @max_guesses = user1_input.to_i.length
+    @player_guess = nil
+    @max_guesses = @secret_word.to_i.length
     @guess_count = 0
+    @clue = Array.new(@secret_word.length)
     @game_is_over = false
   end
 
-  def over_max(user2_input)
+  def over_max
     @guess_count += 1
     if @guess_count >= @max_guesses
       @game_is_over = true
       puts "You ran out of guesses.  Haha, you lost!"
   end
 
-  def compare_guess(user2_input)
-    if user2_input == user1_input
+  def save_user2_guess(user2_input)
+    @player_guess = user2_input
+  end
+
+  def guess_is_equal
+    if @player_guess == @secret_word
+      puts "You guessed correctly!"
       @game_is_over = true
-      puts "Congratulations! You won!"
+      return true
     end
   end
+
+  def guess_is_inside(user2_input)
+    @secret_word.include?(user2_input)
+  end
+
+  def format_clue
+    index = 0
+    @clue.each do |i|
+      @clue[index] = "_"
+  end
+
+  end
+
+#if guess is indeed inside secret word, give feedback
+  def create_feedback
+    loop_counter = 0
+
+    substring_start = @secret_word.index(@player_guess)
+    arr_player_guess = @player_guess.split(//)
+    while loop_counter <=   arr_player_guess.length - 1
+      @clue[substring_start] = arr_player_guess[loop_counter]
+      loop_counter += 1
+    end
+  end
+
 
 
 #other methods
