@@ -1,13 +1,13 @@
 class GuessWhat
 #attr methods
-attr_accessor :secret_word, :max_guesses, :guess_count, :game_is_over
+attr_accessor :secret_word, :player_guess, :max_guesses, :guess_count, :clue, :game_is_over
 
 #initialize method (instance variables)
 #set maximum number of guesses to the number of characters in the secret word given by user 1
-  def initialize(user1_input):
+  def initialize(user1_input, user2_input):
     @secret_word = user1_input
-    @player_guess = nil
-    @max_guesses = @secret_word.to_i.length
+    @player_guess = user2_input
+    @max_guesses = @secret_word.length
     @guess_count = 0
     @clue = Array.new(@secret_word.length)
     @game_is_over = false
@@ -16,49 +16,53 @@ attr_accessor :secret_word, :max_guesses, :guess_count, :game_is_over
   def over_max
     @guess_count += 1
     if @guess_count >= @max_guesses
-      @game_is_over = true
-      puts "You ran out of guesses.  Haha, you lost!"
-  end
-
-  def save_user2_guess(user2_input)
-    @player_guess = user2_input
+      # @game_is_over = true
+      taunt
+      return @game_is_over = true
+    end
   end
 
   def guess_is_equal
     if @player_guess == @secret_word
-      puts "You guessed correctly!"
       @game_is_over = true
+      congratulate
       return true
     end
   end
 
-  def guess_is_inside(user2_input)
-    @secret_word.include?(user2_input)
+  def guess_is_inside
+    @secret_word.include?(@player_guess)
   end
 
-  def format_clue
+  def format_feedback
     index = 0
     @clue.each do |i|
       @clue[index] = "_"
-  end
-
+    end
   end
 
 #if guess is indeed inside secret word, give feedback
   def create_feedback
-    loop_counter = 0
+    clue_counter = 0
 
     substring_start = @secret_word.index(@player_guess)
     arr_player_guess = @player_guess.split(//)
     while loop_counter <=   arr_player_guess.length - 1
-      @clue[substring_start] = arr_player_guess[loop_counter]
-      loop_counter += 1
+      @clue[substring_start] = arr_player_guess[clue_counter]
+      clue_counter += 1
     end
+    @clue = @clue.join
+    return @clue
   end
 
+  def congratulate
+  p "Congratulations, you won!"
+  end
 
+  def taunt
+  p "Hahaha, you are terrible at this.  Game over, sucker!"
+  end
 
-#other methods
 end
 
 #driver code handles user i/o
