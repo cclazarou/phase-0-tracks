@@ -1,41 +1,37 @@
 class GuessWhatWord
-  attr_accessor :secret_word, :player_guess, :max_guesses, :guess_count, :max_guesses, :guesses_left, :clue_arr, :clue_readable, :guess_log, :game_is_over
+  attr_accessor :secret_word, :player_guess, :max_guesses, :guesses_left, :clue_arr, :clue_readable, :game_is_over, :user_won
 
-  def initialize(user1_input, user2_input)
+  def initialize(user1_input)
     @secret_word = user1_input
-    @player_guess = user2_input
-    @max_guesses = @secret_word.length
-    @guess_count = 1
-    @guesses_left = @max_guesses-@guess_count
+    @player_guess = nil
+    @guesses_left = @secret_word.length
     @clue_arr = Array.new(@secret_word.length)
     @clue_readable = nil
     @game_is_over = false
+    @user_won = false
 
     clue_arr_format
-
-    @guess_log = []
   end
 
-  def over_max
-    @guess_count += 1
-    if @guess_count >= @max_guesses
-      @game_is_over = true
-      taunt
-    end
-    return @game_is_over
-  end
+  # def check_over_max
+  #   @guess_count += 1
+  #   if @guess_count >= @max_guesses
+  #     @game_is_over = true
+  #   end
+  #   return @game_is_over
+  # end
 
-  def tell_guesses_left
-      @guesses_left = @max_guesses - @guess_count
-      p @guesses_left
-  end
+  # def tell_guesses_left
+  #     @guesses_left = @max_guesses - @guess_count
+  #     p @guesses_left
+  # end
 
   def guess_is_equal
     if @player_guess == @secret_word
+      @user_won = true
       @game_is_over = true
-      congratulate
     end
-    return @game_is_over
+    return @user_won
   end
 
   def guess_is_inside
@@ -51,9 +47,9 @@ class GuessWhatWord
     return @clue_arr
   end
 
-  def clue_join
-    @clue_readable = @clue_arr.join
-  end
+  # def clue_make_readable
+  #   @clue_readable = @clue_arr.join
+  # end
 
   def feedback_substring
     counter = 0
@@ -66,7 +62,7 @@ class GuessWhatWord
       counter += 1
       substring_start += 1
     end
-    return @clue_arr
+    return @clue_arr.join
   end
 
   def congratulate
@@ -108,14 +104,38 @@ end
 
 # User Interface
 puts "Welcome to the Guessing Game!"
-puts "You will need to players to play this game"
+puts "You will need two players to play this game"
 puts "Player 1, please type a word (don't let Player 2 see!):"
-word1 = gets.chomp
-puts "Player 2, you must guess what word Player 1 has selected!  Type your first guess now:"
-word2 = gets.chomp
-game = GuessWhatWord.new(word1,word2)
+secretword = gets.chomp
 
-puts "Player 2, you have #{game.guesses_left} guesses left.  Please enter your next guess now"
+game = GuessWhatWord.new(secretword)
+
+puts "Your secret is safe with me!  Now, please let Player 2 read the screen."
+puts "Is that you, Player 2?  Great.  You may make #{game.guesses_left} attempts at guessing Player 1's word.  But don't worry, if you accidentally repeat a guess, I'll let you go again without penalty."
+
+while game.game_is_over == false && game.guesses_left > 0
+  puts "Please enter your guess:"
+  game.player_guess = gets.chomp
+
+  if game.guess_is_equal
+    break
+  elsif game.guess_is_inside
+
+
+
+  game.guesses_left = game.guesses_left - 1
+end
+
+if game.user_won
+  game.congratulate
+else
+  game.taunt
+end
+
+# puts "Player 2, you have #{game.guesses_left} guesses left.  Please enter your next guess now:"
+# guess = gets.chomp
+# game.
+
 
 # puts "Shuffling cups ..."
 # game.shuffle

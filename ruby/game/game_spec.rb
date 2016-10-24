@@ -40,7 +40,7 @@ describe GuessWhatWord do
   end
 
   it "gives readable feedback to user after guess" do
-    expect(guessgame.clue_join).to eq "__________"
+    expect(guessgame.clue_make_readable).to eq "__________"
   end
 
   it "checks if user has accidentally repeated a guess" do
