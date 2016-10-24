@@ -6,9 +6,15 @@ attr_accessor :secret_word, :max_guesses, :guess_count, :game_is_over
 #set maximum number of guesses to the number of characters in the secret word given by user 1
   def initialize(user1_input):
     @secret_word = user1_input
-    @max_guesses = user1_input/user1_input.to_i.length
+    @max_guesses = user1_input.to_i.length
     @guess_count = 0
     @game_is_over = false
+  end
+
+  def guess(user2_input)
+    if @guess_count >= @max_guesses
+      @game_is_over = true
+    end
   end
 
 #other methods
