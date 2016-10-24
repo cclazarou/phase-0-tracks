@@ -1,17 +1,19 @@
-class GuessWhat
-#attr methods
-attr_accessor :secret_word, :player_guess, :max_guesses, :guess_count, :max_guesses, :clue, :game_is_over
+class GuessWhatWord
+  attr_accessor :secret_word, :player_guess, :max_guesses, :guess_count, :max_guesses, :guesses_left, :clue_arr, :clue_readable, :guess_log, :game_is_over
 
-#initialize method (instance variables)
-#set maximum number of guesses to the number of characters in the secret word given by user 1
-  def initialize(user1_input, user2_input):
+  def initialize(user1_input, user2_input)
     @secret_word = user1_input
     @player_guess = user2_input
     @max_guesses = @secret_word.length
-    @guess_count = 0
-    @guesses_left = @max_guesses
-    @clue = Array.new(@secret_word.length)
+    @guess_count = 1
+    @guesses_left = @max_guesses-@guess_count
+    @clue_arr = Array.new(@secret_word.length)
+    @clue_readable = nil
     @game_is_over = false
+
+    clue_arr_format
+
+    @guess_log = []
   end
 
   def over_max
@@ -19,8 +21,8 @@ attr_accessor :secret_word, :player_guess, :max_guesses, :guess_count, :max_gues
     if @guess_count >= @max_guesses
       @game_is_over = true
       taunt
-      return @game_is_over
     end
+    return @game_is_over
   end
 
   def tell_guesses_left
@@ -32,32 +34,39 @@ attr_accessor :secret_word, :player_guess, :max_guesses, :guess_count, :max_gues
     if @player_guess == @secret_word
       @game_is_over = true
       congratulate
-      return @game_is_over
     end
+    return @game_is_over
   end
 
   def guess_is_inside
-    @secret_word.include?(@player_guess)
+    @secret_word.include? @player_guess
   end
 
-  def format_feedback
+  def clue_arr_format
     index = 0
-    @clue.each do |i|
-      @clue[index] = "_"
+    @clue_arr.each do |i|
+      @clue_arr[index] = "_"
+      index += 1
     end
+    return @clue_arr
   end
 
-  def create_feedback
-    clue_counter = 0
+  def clue_join
+    @clue_readable = @clue_arr.join
+  end
+
+  def feedback_substring
+    counter = 0
 
     substring_start = @secret_word.index(@player_guess)
-    arr_player_guess = @player_guess.split(//)
-    while loop_counter <=   arr_player_guess.length - 1
-      @clue[substring_start] = arr_player_guess[clue_counter]
-      clue_counter += 1
+    player_guess_arr = @player_guess.split(//)
+
+    while counter <  player_guess_arr.length
+      @clue_arr[substring_start] = player_guess_arr[counter]
+      counter += 1
+      substring_start += 1
     end
-    @clue = @clue.join
-    return @clue
+    return @clue_arr
   end
 
   def congratulate
@@ -69,6 +78,11 @@ attr_accessor :secret_word, :player_guess, :max_guesses, :guess_count, :max_gues
   end
 
 end
+
+# test_game = GuessWhatWord.new("secretword","secret")
+# puts "clue arr: #{test_game.clue_arr}"
+# puts "secret_word.length aka max_guesses: #{test_game.max_guesses}"
+
 
 #Class Methods:
 #1. save secret word from user 1
@@ -82,7 +96,8 @@ end
 #Driver Code:
 #1. create new game, display rules
 #2. ask user 1 for secret word
-#2. ask user 2 for guesses until limit is reached, passing guess to the Class to check and give feedback each time
+#3. ask user 2 for guesses until limit is reached, passing guess to the Class to check and give feedback each time
+#4. if user is repeating a guess, ask them for an alternate input
 
 #Notes:
 #driver code handles user i/o
@@ -91,26 +106,26 @@ end
 #check if guess is in word, if yes show user where
 #if user wins congratulate them, if user loses taunt them
 
-#User Interface
+# User Interface
 puts "Welcome to the Guessing Game!"
 puts "You will need to players to play this game"
-puts "Player 1, please type a word:"
+puts "Player 1, please type a word (don't let Player 2 see!):"
 word1 = gets.chomp
-puts "Player 2, you must guess what word Player 1 has selected!  Type your guess now:"
+puts "Player 2, you must guess what word Player 1 has selected!  Type your first guess now:"
 word2 = gets.chomp
-game = GuessWhat.new(word1,word2)
+game = GuessWhatWord.new(word1,word2)
 
-puts
+puts "Player 2, you have #{game.guesses_left} guesses left.  Please enter your next guess now"
 
-puts "Shuffling cups ..."
-game.shuffle
+# puts "Shuffling cups ..."
+# game.shuffle
 
-while !game.is_over
-  puts "Which cup has the ball? Enter a guess of 1, 2, or 3:"
-  guess = gets.chomp.to_i
-  if !game.check_cup(guess - 1)
-    puts "Nope! Try again."
-  end
-end
+# while !game.is_over
+#   puts "Which cup has the ball? Enter a guess of 1, 2, or 3:"
+#   guess = gets.chomp.to_i
+#   if !game.check_cup(guess - 1)
+#     puts "Nope! Try again."
+#   end
+# end
 
-puts "You won in #{game.guess_count} guesses!"
+# puts "You won in #{game.guess_count} guesses!"
