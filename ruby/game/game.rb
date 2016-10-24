@@ -11,11 +11,20 @@ attr_accessor :secret_word, :max_guesses, :guess_count, :game_is_over
     @game_is_over = false
   end
 
-  def guess(user2_input)
+  def over_max(user2_input)
+    @guess_count += 1
     if @guess_count >= @max_guesses
       @game_is_over = true
+      puts "You ran out of guesses.  Haha, you lost!"
+  end
+
+  def compare_guess(user2_input)
+    if user2_input == user1_input
+      @game_is_over = true
+      puts "Congratulations! You won!"
     end
   end
+
 
 #other methods
 end
