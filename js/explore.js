@@ -26,8 +26,15 @@ function reverse_me(str){
 
   }
 
-      console.log("your reversed string is: " + reverse_of_string)
+      // console.log("your reversed string is: " + reverse_of_string)
+      // return reverse_of_string
 
 }
 
-reverse_me("hello")
+//#DRIVER CODE
+var output_of_reverse_me = 1
+output_of_reverse_me = reverse_me("hello")
+
+if (1 < 10) {console.log(output_of_reverse_me)};
+
+
