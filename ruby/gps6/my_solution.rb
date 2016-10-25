@@ -96,3 +96,26 @@ end
 
 #=======================================================================
 # Reflection Section
+Once again, I lucked out and got a very engaged guide, which very much made up for our technical difficulties and my lack of a "real" pair to program with.  I was really grateful for DBC's intuition that a nested hash refresher assignment was a good idea at this juncture, and specifically benefited from the following implied points
+
+- When iterating through a hash using .each do, you can access a value in a nested hash by using the overt syntax
+
+  name_of_hash[key_in_hash_at_this_element][key_of_subhash*_at_this_element]
+
+  OR the more efficient syntax
+
+  local_name_of_value_in_this_element_of_hash[key_of_subhash]
+
+  BECAUSE
+
+  if we're at the first element of the STATE_DATA hash ("Alabama" => {population_density: 94.65, population: 4822023})
+
+  then both name_of_hash[key_in_hash] AND local_name_of_value_in_this_element_of_hash return
+
+  {population_density: 94.65, population: 4822023}
+
+- the private keyword can be called anywhere in a class, and every method underneath it until the end of the class definition cannot be called outside of the class, even though it is an instance method
+
+As always, I think it would be a good idea to write down more of my "rabbit hole" ideas, and time block how much of the exercise we want to dedicate to tangiential ideas with my guide ahead of time (otherwise I get a little out of control).
+
+*I know this isn't a real word
