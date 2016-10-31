@@ -1,15 +1,45 @@
 /*
 RELEASE 0
-function that takes array and returns longest element - no indication of array length
+function that takes array and returns longest element - no required array length for input
 
-1. iterate through array
-2. at each element, count number of characters
-3. store those numbers in an array that is accessible outside of the iteration (note: you could do this by just calculating the length of the current words/phrases in focus in the original array, but I think it would be slightly less efficient depending upon how many words/phrases you had to sort)
-4. create and set a flag to false (this flag will be used to indicate if the new array has been modified or not, which will let the loop in step 5 know it can stop)
-5. set a loop to iterate through the new array, swapping elements positions if the element in focus is greater than the next element.  If is found that the element is greater than the next element, then the mod flag should switch to true.  This loop should continue to perform this function until the the flag is false.
-6. return the element at index 0 of the newly sorted array.
+1. iterate through array, acting on length of each element
+2. create and set a flag to true (initially it's true just to start the iteration, but from then on this flag will be used to indicate if the new array has been modified or not)
+3. set a loop to iterate through the array, swapping elements positions if the element in focus is greater than the next element.  If is found that the element is greater than the next element, then the modification flag should switch to true.  This loop should continue to perform this function until the the flag is false.
+4. return the last element of the newly sorted array.
 */
 
 function find_longest(arr){
-  arr
+  var new_arr = []
+  var swap_happened = true
+
+  while(swap_happened){
+
+    for(index = 0; index < arr.length - 1; index++){
+
+      if(arr[index].length > arr[index + 1].length){
+
+        var_moving_backward = arr[index + 1]
+        var_moving_forward = arr[index]
+        arr[index] = var_moving_backward
+        arr[index + 1] = var_moving_forward
+        swap_happened = true
+        // console.log("something was swapped")
+
+      }
+      else{
+
+        swap_happened = false
+        // console.log("nothing was swapped")
+
+      }
+    }
+  }
+
+    console.log(arr[arr.length-1])
+    return arr[arr.length-1]
+
 }
+
+//DRIVER CODE
+var cat_behaviors = ["scratch", "bite", "eat", "run", "jump around like crazy", "purr because you just ate"]
+find_longest(cat_behaviors)
