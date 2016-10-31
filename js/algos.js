@@ -126,33 +126,53 @@ function found_match_in_objects(object1,object2){
 
 //RELEASE 2 PSEUDOCODE
 /* function that takes a length and returns an array with that many elements; each element is a random word between 1 and 10 letters (inclusive).
-1. create an empty array
-2. adding elements to the main array: create a loop that iterates the number of times given as the array length
-3. on each pass, add an element to the array
-    - to add an element to the array, create a nested loop
-    - within the nested loop, generate a random number between 1 and 10 (inclusive) - this number gives the length of the word being added on this pass
-    - generate a random character a-z(inclusive) on each pass of this nested loop. add this character to the direct parent array (the "word")
-      - to generate a random character, create an array of the alphabet
-      - generate a random number between 0 and the length of the alphabet array minus 1
-      - find the element in the alphabet array at that number in the index; that is
-        your random character
-    - when exiting this nested loop, join the characters to form a word at that index in the main array
-4. return the main array */
+1. create an empty test data array (this is what you'll be returning)
+2. create an array of alphabetical characters (used to translate an int from 0-25 into a character)
+3. create a variable to hold the random characters you generate
+4. create an empty word array (this will be a hold for the characters generated for each word in the array)
+5. create a main loop.  on each pass, you're creating a new word in the test data array, so the number of times you loop should equal the number given as the test data array length
+6. on each pass of the main loop, generate a random number.  this number will be the number of characters in the word you're currently creating.
+7. within the main loop, create a nested loop. on each pass, you're creating a new letter in the word array, so the number of times you loop should equal the number you've just generated in step 6.
+8. generate a random character
+    - generate random number.
+    - using that number as an index, find a random character in the array of characters
+9. add the character to the word array
+10. once you've exited the nested loop, join the characters in the word array to create one string
+11. add this string to the test data array
+12. return the test data array */
 
 //RELEASE 2 CODE
-function generate_array(length){
+function generate_array(arr_length){
 
-  test_data = [];
+  var test_data = [];
+  var char_array = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  var random_char = "";
+  var word = [];
 
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  for(i = 0; i < arr_length; i++){
 
+    word_length = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
+
+    for(index = 0; index < word_length; index++){
+
+      index_of_char_array = Math.floor(Math.random() * (25 - 0 + 1)) + 1;
+      random_char = char_array[index_of_char_array];
+      word[index] = random_char;
+
+    }
+
+    new_word = word.join("");
+    test_data.push(new_word);
+
+  }
+  console.log("Test Data: " + test_data);
+  return test_data;
 }
 
 //RELEASE 2 DRIVER CODE
 
-generate_array(2)
+generate_array(3)
+generate_array(5)
 
 // //RELEASE 0 DRIVER CODE
 // var cat_behaviors = ["scratch", "bite", "eat", "run", "jump around like crazy", "purr because you just ate"];
