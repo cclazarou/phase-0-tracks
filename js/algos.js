@@ -60,8 +60,8 @@ function find_longest(arr){
 //RELEASE 1 PSEUDOCODE
 /* function that takes two objects and returns true if they share at least one key value pair
 1. set a flag to indicate that a match was found.  initialize to false.
-2. iterate through object 1's key value pairs
-3. on each pass, compare to each of object 2's key value pairs
+2. iterate through object 1's array
+3. on each pass, compare the object 1 array element to each of the object 2 array elements using another (nested) iteration
 4. if a match is found, set flag to true, then break from iteration
 5. if flag is true (meaning a match has been found), then return true.
 6. if flag is false (meaning a match was not found during iteration through object 1's key value pairs), then return false
@@ -69,14 +69,60 @@ function find_longest(arr){
 
 //RELEASE 1 CODE
 function found_match_in_objects(object1,object2){
-    var match_found = false
 
-    object
+  var match_found = false;
+  //omit because .entries in not part of core js
+  // object1_arr = Object.entries(object1);
+  // object2_arr = Object.entries(object2);
 
-//function end
+    for(obj1_key in object1){
+
+      for(obj2_key in object2){
+
+        if(object1[obj1_key] == object2[obj2_key] && obj1_key == obj2_key){
+
+          match_found = true;
+          break;
+        }
+      }
+      if(match_found == true){
+
+        console.log("break from outermost loop");
+        break;
+      }
+    }
+
+// omit because .entries is not part of core js
+//     for (i = 0; i < object1_arr.length; i++){
+//       object1_pair = object1_arr[i];
+
+//         for(index = 0; index < object2_arr.length; i++){
+//           if(object1_pair == object2_arr[i]){
+//             match_found = true;
+//             console.log("we're breaking from the innermost for loop because we found a match")
+//             break;
+//           }
+//         }
+
+//       if(match_found == true){
+//         console.log("we're breaking from the outermost for loop because we found a match")
+//         break;
+//       }
+//     }
+
+    if(match_found == true){
+
+      console.log("we found a match at the end check!")
+      return true;
+    }
+    else{
+
+      console.log("we didn't find a match at the end check")
+      return false;
+    }
 }
 
-//RELEASE 1 DRIVER CODE
+
 
 //RELEASE 2 PSEUDOCODE
 /* */
@@ -96,3 +142,18 @@ function found_match_in_objects(object1,object2){
 // var corner_case_2 = ["same", "same", "notsame", "same", "same"];
 // find_longest(corner_case_2);
 
+// //RELEASE 1 DRIVER CODE
+// var candace_lazarou = {
+//   age: 33, hair: "black", favorite_food: "nutella"
+// };
+
+// var tina_lazarou = {
+//   age: 53, hair: "black", favorite_food: "lumpia"
+// };
+
+// found_match_in_objects(candace_lazarou,tina_lazarou)
+
+// var apple = {size: "small", cost: 300, mood: "cheerful", exists: true}
+// var banana = {size: "large", cost: 600, voice: "frightened", exists: false}
+
+// found_match_in_objects(apple,banana)
