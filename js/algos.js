@@ -125,9 +125,34 @@ function found_match_in_objects(object1,object2){
 
 
 //RELEASE 2 PSEUDOCODE
-/* */
+/* function that takes a length and returns an array with that many elements; each element is a random word between 1 and 10 letters (inclusive).
+1. create an empty array
+2. adding elements to the main array: create a loop that iterates the number of times given as the array length
+3. on each pass, add an element to the array
+    - to add an element to the array, create a nested loop
+    - within the nested loop, generate a random number between 1 and 10 (inclusive) - this number gives the length of the word being added on this pass
+    - generate a random character a-z(inclusive) on each pass of this nested loop. add this character to the direct parent array (the "word")
+      - to generate a random character, create an array of the alphabet
+      - generate a random number between 0 and the length of the alphabet array minus 1
+      - find the element in the alphabet array at that number in the index; that is
+        your random character
+    - when exiting this nested loop, join the characters to form a word at that index in the main array
+4. return the main array */
+
 //RELEASE 2 CODE
+function generate_array(length){
+
+  test_data = [];
+
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+
+}
+
 //RELEASE 2 DRIVER CODE
+
+generate_array(2)
 
 // //RELEASE 0 DRIVER CODE
 // var cat_behaviors = ["scratch", "bite", "eat", "run", "jump around like crazy", "purr because you just ate"];
