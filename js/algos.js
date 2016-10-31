@@ -43,3 +43,9 @@ function find_longest(arr){
 //DRIVER CODE
 var cat_behaviors = ["scratch", "bite", "eat", "run", "jump around like crazy", "purr because you just ate"]
 find_longest(cat_behaviors)
+
+var famous_actresses = ["Isabella Rossellini", "Isabelle Huppert", "Isabelle Adjani"]
+find_longest(famous_actresses)
+
+var imaginary_words = ["whatwhat", "wha", "whatwhatwhatwhat", "whatt", "whatwhatwhatwhatwhatwhatwhatwhatwhatwhatwhatwhat", "wh"]
+find_longest(imaginary_words)
