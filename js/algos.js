@@ -112,17 +112,15 @@ function found_match_in_objects(object1,object2){
 
     if(match_found == true){
 
-      console.log("we found a match at the end check!")
+      // console.log("we found a match at the end check!")
       return true;
     }
     else{
 
-      console.log("we didn't find a match at the end check")
+      // console.log("we didn't find a match at the end check")
       return false;
     }
 }
-
-
 
 //RELEASE 2 PSEUDOCODE
 /* function that takes a length and returns an array with that many elements; each element is a random word between 1 and 10 letters (inclusive).
@@ -145,60 +143,69 @@ function found_match_in_objects(object1,object2){
 function generate_array(arr_length){
 
   var test_data = [];
+  var word_length = null;
   var char_array = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  var index_of_char_array = null;
   var random_char = "";
-  var word = [];
+  var new_word = "";
 
+//main loop, create test data array
   for(i = 0; i < arr_length; i++){
 
-    word_length = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
+    var word = []
+
+     word_length = Math.floor(Math.random() * 10) + 1;
+    // console.log("word length for word in test data array at " + i + " is " + word_length);
 
     for(index = 0; index < word_length; index++){
 
-      index_of_char_array = Math.floor(Math.random() * (25 - 0 + 1)) + 1;
+      index_of_char_array = Math.floor(Math.random() * 25) + 1;
       random_char = char_array[index_of_char_array];
       word[index] = random_char;
+      // console.log("innermost loop, current state of word: " + word[index]);
 
-    }
+    };
 
     new_word = word.join("");
-    test_data.push(new_word);
+    test_data[i] = new_word;
+    // console.log("word in test data array at index " + i + " is " + test_data[i]);
 
   }
-  console.log("Test Data: " + test_data);
+  // console.log("test data array is " + test_data);
   return test_data;
 }
 
+//RELEASE 0 DRIVER CODE
+var cat_behaviors = ["scratch", "bite", "eat", "run", "jump around like crazy", "purr because you just ate"];
+find_longest(cat_behaviors);
+
+var imaginary_words = ["whatwhat", "wha", "whatwhatwhatwhat", "whatt", "whatwhatwhatwhatwhatwhatwhatwhatwhatwhatwhatwhat", "wh"];
+find_longest(imaginary_words);
+
+var corner_case_1 = ["same", "same", "same", "same", "same"];
+find_longest(corner_case_1);
+
+var corner_case_2 = ["same", "same", "notsame", "same", "same"];
+find_longest(corner_case_2);
+
+//RELEASE 1 DRIVER CODE
+var candace_lazarou = {
+  age: 33, hair: "black", favorite_food: "nutella"
+};
+
+var tina_lazarou = {
+  age: 53, hair: "black", favorite_food: "lumpia"
+};
+
+found_match_in_objects(candace_lazarou,tina_lazarou)
+
+var apple = {size: "small", cost: 300, mood: "cheerful", exists: true}
+var banana = {size: "large", cost: 600, voice: "frightened", exists: false}
+
+found_match_in_objects(apple,banana)
+
 //RELEASE 2 DRIVER CODE
 
-generate_array(3)
-generate_array(5)
-
-// //RELEASE 0 DRIVER CODE
-// var cat_behaviors = ["scratch", "bite", "eat", "run", "jump around like crazy", "purr because you just ate"];
-// find_longest(cat_behaviors);
-
-// var imaginary_words = ["whatwhat", "wha", "whatwhatwhatwhat", "whatt", "whatwhatwhatwhatwhatwhatwhatwhatwhatwhatwhatwhat", "wh"];
-// find_longest(imaginary_words);
-
-// var corner_case_1 = ["same", "same", "same", "same", "same"];
-// find_longest(corner_case_1);
-
-// var corner_case_2 = ["same", "same", "notsame", "same", "same"];
-// find_longest(corner_case_2);
-
-// //RELEASE 1 DRIVER CODE
-// var candace_lazarou = {
-//   age: 33, hair: "black", favorite_food: "nutella"
-// };
-
-// var tina_lazarou = {
-//   age: 53, hair: "black", favorite_food: "lumpia"
-// };
-
-// found_match_in_objects(candace_lazarou,tina_lazarou)
-
-// var apple = {size: "small", cost: 300, mood: "cheerful", exists: true}
-// var banana = {size: "large", cost: 600, voice: "frightened", exists: false}
-
-// found_match_in_objects(apple,banana)
+random_data = generate_array(4);
+console.log(random_data);
+longest_random_word = find_longest(random_data);
