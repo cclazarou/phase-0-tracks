@@ -1,0 +1,49 @@
+1. Display the information in one table (either table is fine).
+
+Query:
+SELECT * FROM vampires;
+
+Output:
+1|Elizabeth Bathory|402|true|1
+2|Eric Northman|1000|false|2
+3|Count Orlock|395|true|3
+4|Drusilla|156|true|4
+5|Spike|219|false|4
+6|Ilona Harczy|100|false|1
+7|Tara Thornton|33|false|2
+8|Angel|289|false|4
+9|Harmony|25|true|4
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+
+Query:
+UPDATE vampires SET age=396 WHERE name=“Count Orlock”;
+
+Output:
+(none, but Count Orlock was updated - 
+3|Count Orlock|396|true|3
+)
+
+3. Display the information in both tables using one query.
+
+Query:
+SELECT * FROM vampires, tv_show_or_movie WHERE vampires.tv_show_or_movie = tv_show_or_movie.id;
+
+Output:
+1|Elizabeth Bathory|402|true|1|1|Daughters of Darkness
+2|Eric Northman|1000|false|2|2|True Blood
+3|Count Orlock|396|true|3|3|Nosferatu
+4|Drusilla|156|true|4|4|Buffy the Vampire Slayer
+5|Spike|219|false|4|4|Buffy the Vampire Slayer
+6|Ilona Harczy|100|false|1|1|Daughters of Darkness
+7|Tara Thornton|33|false|2|2|True Blood
+8|Angel|289|false|4|4|Buffy the Vampire Slayer
+9|Harmony|25|true|4|4|Buffy the Vampire Slayer
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+Query:
+SELECT * FROM vampires.name,tv_show_or_movie.name FROM 
+Output:
+
+Delete an item that meets some condition (you can choose a condition that makes sense).
