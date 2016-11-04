@@ -1,0 +1,44 @@
+join all three tables
+
+query:
+SELECT * FROM reviews
+JOIN users ON reviews.user_id = users.id
+JOIN businesses ON reviews.business_id = businesses.id;
+
+output:
+1|3|Candace here, Piggly Wiggly is ok but not great|4|1|1|Candace|Lazarou|4|Piggly Wiggly
+2|5|Candace here, Unicorn Emporium is amazing|1|1|1|Candace|Lazarou|1|Unicorn Emporium
+3|3|Amber here, PetCo had what I needed but smelled bad|2|2|2|Amber|Nash|2|PetCo
+4|1|Amber here, unicorn horns were lackluster|1|2|2|Amber|Nash|1|Unicorn Emporium
+5|5|Alec here, Hot Topic is my favorite store|3|3|3|Alec|Baldwin|3|Hot Topic
+6|2|Bruce here, Hot Topic is one of my least favorite stores|3|4|4|Bruce|Wayne|3|Hot Topic
+7|1|Nash here, PetCo smelled like puke|2|5|5|Nash|Bridges|2|PetCo
+
+
+view user's name, business name, star rating, comment
+
+query:
+SELECT users.first_name,users.last_name,businesses.name,reviews.stars,reviews.comment FROM reviews
+
+output:
+Candace|Lazarou|Piggly Wiggly|3|Candace here, Piggly Wiggly is ok but not great
+Candace|Lazarou|Unicorn Emporium|5|Candace here, Unicorn Emporium is amazing
+Amber|Nash|PetCo|3|Amber here, PetCo had what I needed but smelled bad
+Amber|Nash|Unicorn Emporium|1|Amber here, unicorn horns were lackluster
+Alec|Baldwin|Hot Topic|5|Alec here, Hot Topic is my favorite store
+Bruce|Wayne|Hot Topic|2|Bruce here, Hot Topic is one of my least favorite stores
+Nash|Bridges|PetCo|1|Nash here, PetCo smelled like puke
+
+
+view all three tables for one business
+
+query:
+SELECT businesses.name,reviews.stars,reviews.comment,users.first_name,users.last_name FROM reviews
+JOIN users ON reviews.user_id = users.id
+JOIN businesses ON reviews.business_id = businesses.id
+WHERE reviews.business_id = 1;
+
+output:
+Unicorn Emporium|5|Candace here, Unicorn Emporium is amazing|Candace|Lazarou
+Unicorn Emporium|1|Amber here, unicorn horns were lackluster|Amber|Nash
+
