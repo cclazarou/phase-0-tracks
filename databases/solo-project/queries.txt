@@ -1,6 +1,6 @@
 1. Display the information in one table (either table is fine).
 
-Query:
+Input:
 SELECT * FROM vampires;
 
 Output:
@@ -16,17 +16,17 @@ Output:
 
 2. Update an item that meets some condition (you can choose a condition that makes sense).
 
-Query:
+Input:
 UPDATE vampires SET age=396 WHERE name=“Count Orlock”;
 
 Output:
-(none, but Count Orlock was updated - 
+(none, but Count Orlock was updated -
 3|Count Orlock|396|true|3
 )
 
 3. Display the information in both tables using one query.
 
-Query:
+Input:
 SELECT * FROM vampires, tv_show_or_movie WHERE vampires.tv_show_or_movie = tv_show_or_movie.id;
 
 Output:
@@ -42,8 +42,30 @@ Output:
 
 4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
 
-Query:
-SELECT * FROM vampires.name,tv_show_or_movie.name FROM 
-Output:
+Input:
+SELECT vampires.name,tv_show_or_movie.name FROM vampires JOIN tv_show_or_movie ON vampires.tv_show_or_movie = tv_show_or_movie.id;
 
-Delete an item that meets some condition (you can choose a condition that makes sense).
+Output:
+Elizabeth Bathory|Daughters of Darkness
+Eric Northman|True Blood
+Count Orlock|Nosferatu
+Drusilla|Buffy the Vampire Slayer
+Spike|Buffy the Vampire Slayer
+Ilona Harczy|Daughters of Darkness
+Tara Thornton|True Blood
+Angel|Buffy the Vampire Slayer
+Harmony|Buffy the Vampire Slayer
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+
+Input:
+DELETE FROM vampires WHERE age < 35;
+
+Output:
+1|Elizabeth Bathory|402|true|1
+2|Eric Northman|1000|false|2
+3|Count Orlock|396|true|3
+4|Drusilla|156|true|4
+5|Spike|219|false|4
+6|Ilona Harczy|100|false|1
+8|Angel|289|false|4
