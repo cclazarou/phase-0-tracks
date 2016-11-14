@@ -1,0 +1,18 @@
+div.block {
+  height: 200px;
+  width: 200px;
+  margin: 15px;
+  display: inline-block;
+}
+
+div#first-block {
+  background-color: black;
+}
+
+div#second-block {
+  background-color: purple;
+}
+
+div#third-block {
+  background-color: yellow;
+}
