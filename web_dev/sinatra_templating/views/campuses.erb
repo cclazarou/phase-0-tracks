@@ -1,0 +1,23 @@
+<html>
+<head>
+  <title>Student Management System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Campus Coverage</h1>
+  <p>Our system covers the following campuses.</p>
+
+    <% campus_arr = [] %>
+    <% @campuses.each do |campus| %>
+      <% campus_arr.push(campus) %>
+    <% end %>
+    <% campus_arr.uniq! %>
+
+    <ul>
+      <% campus_arr.each do |campus| %>
+        <li><%= campus[0] %></li>
+      <% end %>
+    </ul>
+
+</body>
+</html>
