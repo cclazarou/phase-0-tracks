@@ -1,0 +1,31 @@
+div.block {
+  height: 200px;
+  width: 200px;
+  margin: 15px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+div#first-block {
+  background-color: #91745C;
+}
+
+div#second-block {
+  background-color: purple;
+}
+
+div#third-block {
+  background-color: yellow;
+}
+
+h3#swatch-control {
+  cursor: pointer;
+}
+
+div#swatches {
+  display: none;
+}
+
+section#articles {
+  display: none;
+}
